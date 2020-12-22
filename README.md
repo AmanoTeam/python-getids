@@ -1,4 +1,4 @@
-# GetIDs-python
+# python GetIDs
 
 This is a Python port of GetIDs engine that calculates Telegram account age based on known account creation dates.
 

@@ -1,10 +1,12 @@
-#!/bin/env python
-import sys
+import os.path
 import json
 import math
 from datetime import datetime
 
-ages = open("ages.json")
+
+path = os.path.dirname(__file__)
+
+ages = open(os.path.join(path, "ages.json"))
 
 nids = json.load(ages)
 
@@ -39,12 +41,3 @@ def get_age(id):
         "older_than" if d[0] < 0 else "newer_than" if d[0] > 0 else "aprox",
         f"{d[1].month}/{d[1].year}"
     )
-
-if __name__ == "__main__":
-    if len(sys.argv) <= 1:
-        print("You must specify the target IDs as argument to get their creation dates.", file=sys.stderr)
-        sys.exit(1)
-    else:
-        sys.argv.pop(0)
-        for uid in sys.argv:
-            print(f"{uid}:", " ".join(get_age(int(uid))))
