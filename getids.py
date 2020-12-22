@@ -1,4 +1,5 @@
 #!/bin/env python
+import sys
 import json
 import math
 from datetime import datetime
@@ -9,6 +10,7 @@ nids = json.load(ages)
 
 min_id = list(nids.keys())[0]
 max_id = list(nids.keys())[-1]
+
 
 def get_date(id):
     if id < int(min_id):
@@ -38,3 +40,11 @@ def get_age(id):
         f"{d[1].month}/{d[1].year}"
     )
 
+if __name__ == "__main__":
+    if len(sys.argv) <= 1:
+        print("You must specify the target IDs as argument to get their creation dates.", file=sys.stderr)
+        sys.exit(1)
+    else:
+        sys.argv.pop(0)
+        for uid in sys.argv:
+            print(f"{uid}:", " ".join(get_age(int(uid))))
