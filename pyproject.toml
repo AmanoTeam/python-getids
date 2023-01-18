@@ -1,0 +1,14 @@
+[project]
+name = "getids"
+version = "1.1.0"
+description = "A Python port of the GetIDs engine that calculates the date of creation for Telegram accounts using known creation dates."
+readme = "README.rst"
+requires-python = ">=3.7"
+
+authors = [
+    { name = "Amano LLC", email = "contact@amanoteam.com" }
+]
+license = { file = "LICENSE" }
+
+[project.urls]
+homepage = "https://github.com/AmanoTeam/python-getids"
